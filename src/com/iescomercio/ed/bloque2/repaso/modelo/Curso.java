@@ -4,55 +4,68 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Curso {
-	
+
 	private List<Persona> listaAlumnos;
 
-	/*
-	 * Documentar y crear test unitario
-	 * */
+	/**
+	 * Esta funcion eliminara el alumno por DNI.
+	 * 
+	 * @param dni DNI del alumno a eliminar.
+	 * @throws Exception El dni no tiene la longitud adecuada.
+	 */
 	public void eliminarAlumno(String dni) throws Exception {
-		if(dni.length()==9) {//comprobar la longitud del dni
-			listaAlumnos.remove(new Persona(dni, "", "")); //solo hace falta el dni
-		}else {
+		if (dni.length() == 9) {// comprobar la longitud del dni
+			listaAlumnos.remove(new Persona(dni, "", "")); // solo hace falta el dni
+		} else {
 			throw new Exception("El dni no tiene la longitud adecuada");
 		}
 	}
-	
-	/*
-	 * Documentar y crear test unitario
-	 * */
+
+	/**
+	 * Funcion que aniadira al aluma introducido.
+	 * 
+	 * @param p Objeto tipo persona que sera introducido para meter en el listado.
+	 */
 	public void aniadirAlumno(Persona p) {
 		listaAlumnos.add(p);
 	}
-	
-	/*
-	 * Documentar y crear test unitario
-	 * */
+
+	/**
+	 * Funcion que comprueba si el alumno con DNI introducidop por parametro esta
+	 * registrado.
+	 * 
+	 * @param dni DNI del alumno a buscar.
+	 * @return Devolvera verdader en caso de que este y falso en caso de que no
+	 *         este.
+	 */
 	public Boolean estaRegistrado(String dni) {
-		int i =0;
-		Boolean encontrado=false;
-		while (!encontrado && i<listaAlumnos.size()) {
-			if(listaAlumnos.get(i).getDni().equals(dni)) {
-				encontrado=true;
+		int i = 0;
+		Boolean encontrado = false;
+		while (!encontrado && i < listaAlumnos.size()) {
+			if (listaAlumnos.get(i).getDni().equals(dni)) {
+				encontrado = true;
 			}
 			i++;
 		}
 		return encontrado;
 	}
-	
-	/*
-	 * Documentar y crear test unitario
-	 * */
+
+	/**
+	 * Construuctor del curso. Inicializara un array vacio de alumnos.
+	 */
 	public Curso() {
-		listaAlumnos= new ArrayList<Persona>();
+		listaAlumnos = new ArrayList<Persona>();
 	}
-	
-	/*
-	 * Documentar y crear test unitario
-	 * */
-	public Integer numeroAlumnos() {return listaAlumnos.size();}
-	
-	
+
+	/**
+	 * Funcion que devolvera el numero de alumnos que tiene el curso.
+	 * 
+	 * @return Tamaño del curso como entero.
+	 */
+	public Integer numeroAlumnos() {
+		return listaAlumnos.size();
+	}
+
 	public void mostrarTodos() {
 		for (Persona persona : listaAlumnos) {
 			System.out.println(persona);
