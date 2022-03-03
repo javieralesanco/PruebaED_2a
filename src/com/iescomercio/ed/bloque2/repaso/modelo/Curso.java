@@ -3,6 +3,13 @@ package com.iescomercio.ed.bloque2.repaso.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que crea un listado de alumnos y funciones para manejarlo.
+ * 
+ * @author javieralesanco
+ * @version 1.0
+ * @see Persona {@link Persona}
+ */
 public class Curso {
 
 	private List<Persona> listaAlumnos;
